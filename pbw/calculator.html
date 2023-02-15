@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en"></html>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <head>
+      <title>Latihan1</title>        
+      <style>
+         .side {
+            height: 100%;
+            width: 50%;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            overflow-x: hidden;
+            padding-top: 20px;
+         }
+         
+         .right {
+            right: 0;
+            background-color: #5D6D7E;
+            border-left: 3px solid black;
+         }
+
+         .left{
+            left: 0;
+            background-color: #192655;
+            border-right: 3px solid black;
+         }
+
+         .centered {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            background-color: #A9DFBF;   
+            margin-top: 50px;
+         }
+      </style>
+    </head>
+    <body>
+      <div class="left side">
+         <div class="centered">
+            <h1>&emsp;Biodata&emsp;</h1>
+            <p>Nama lengkap: Rendika Rahmaturrizki</p>
+            <p>NIM: 2108107010066</p>
+            <p>Jurusan: Informatika</p>
+            <p>Fakultas: MIPA</p>
+            <p>Universitas: Universitas Syiah Kuala</p>
+            <img src="https://i.ytimg.com/vi/P31z2qbErpc/maxresdefault.jpg" width="100" height="80">
+         </div>
+      </div>
+      <div class="right side">
+         <div class="centered">
+
+         <h1>&emsp;Kalkulator&emsp;</h1>
+         <label for="num1">First number: </label><br>
+         <input class ="kotakangka" type="number", id="firstnumber"><br>
+         <label for="num2">Second number:</label><br>
+         <input class ="kotakangka" type="number", id="secondnumber"><br>         
+         <label for="operation">choose: </label><br>
+         <br>
+         <select name="operation", id="operation">
+               <option value="0">select operator:</option>
+               <option value="1">addition</option>
+               <option value="2">multiplication</option>
+               <option value="3">division</option>
+               <option value="4">substraction</option>
+         </select>
+         <br>
+         <input type="button" id="btnSubmit" value="submit" onclick="document.getElementById('result').value+=chooseOperation()">
+         </br>
+         <br>
+         <p><input class="kotakangka" type="number", id="result"></p>
+         </br>
+         <script>
+            function getNilai1() {
+               var x = parseFloat(document.getElementById('firstnumber').value);
+               return x;
+            }
+
+            function getNilai2() {
+               var x = parseFloat(document.getElementById('secondnumber').value);
+               return x;
+            }
+
+            function chooseOperation() {
+               var opt = document.getElementById('operation');
+               var selectedopt = parseInt(opt.options[opt.selectedIndex].value)
+               switch (selectedopt) {
+                  case 1:
+                     var result = getNilai1() + getNilai2();
+                     return result;
+                     break;
+                  
+                  case 2:
+                     var result = getNilai1() * getNilai2();
+                     return result;
+                     break;
+                  
+                  case 3:
+                     var result = getNilai1() / getNilai2();
+                     return result;
+                     break;
+                  
+                  case 4:
+                     var result = getNilai1() - getNilai2();
+                     return result;
+                     break;
+
+                  default:
+                     break;
+               }
+            }
+         </script>
+         </div>
+      </div>
+    </body>
